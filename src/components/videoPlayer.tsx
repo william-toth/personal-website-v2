@@ -1,20 +1,9 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import Demo from "../img/demo.mp4";
 
 function VideoPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
-
-  const handlePlayPause = () => {
-    const video = videoRef.current;
-    if (isPlaying) {
-      video.pause();
-    } else {
-      video.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
   return (
     <div>

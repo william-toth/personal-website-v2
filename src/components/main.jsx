@@ -14,11 +14,10 @@ import amazon from '../img/amazon.png';
 import nasdaq from '../img/nasdaqlogo.png';
 import dartmouth from '../img/d.png';
 import Typewriter from 'typewriter-effect';
-import VideoPlayer from './videoPlayer';
+import VideoPlayer from './videoPlayer.tsx';
 import roblox from '../img/roblox.png';
 
-
-function Main() {
+const Main = () => {
   
   const [date, setDate] = useState(new Date());
 

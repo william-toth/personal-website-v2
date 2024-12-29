@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
-import Landing from './components/landing';
-import Main from './components/main';
+import Landing from './components/landing.tsx';
+import Main from './components/main.jsx';
 import './App.css'
 
 function App() {
