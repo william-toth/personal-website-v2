@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import Demo from "../img/demo.mp4";
 
 function VideoPlayer() {
