@@ -10,9 +10,7 @@ client = MongoClient(connection_string)
 
 @app.route('/', methods = ['POST']) 
 def home():
-    print(connection_string == None)
-    print(len(connection_string))
-    print(request.get_json().name)
+    print(request.get_json())
     # try:
     #     data = request.get_json() 
     #     client.guestbook.Collection.insert_one(data)
