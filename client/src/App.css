@@ -169,6 +169,16 @@ code {
   font-family: 'CasaleFinale NBP', sans-serif;
 }
 
+.guestbook {
+  position: absolute;
+  top: 350px;
+  left: 350px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0px;
+  font-family: 'CasaleFinale NBP', sans-serif;
+}
+
 .resume {
   position: absolute;
   top: 480px;
@@ -181,6 +191,16 @@ code {
 
 .text {
   height: 52px;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.book {
+  height: 40px;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -259,10 +279,25 @@ code {
   min-width: 480px;
 }
 
+.guestbookwindow {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  background: #fff url("img/background2.png") 0 0 repeat;
+  border: 1px solid black;
+  font-family: 'CasaleFinale NBP', sans-serif;
+  width: 60%;
+  height: 450px;
+  resize: both;
+  overflow: auto;
+  overflow-y: auto;
+  min-width: 480px;
+}
+
 .projectswindow {
   position: absolute;
-  top: 90px;
-  left: 240px;
+  top: 50px;
+  left: 200px;
   background: #fff url("img/background2.png") 0 0 repeat;
   border: 1px solid black;
   font-family: 'CasaleFinale NBP', sans-serif;
@@ -276,8 +311,8 @@ code {
 
 .experiencewindow {
   position: absolute;
-  top: 20px;
-  left: 260px;
+  top: 50px;
+  left: 200px;
   background: #fff url("img/background2.png") 0 0 repeat;
   border: 1px solid black;
   font-family: 'CasaleFinale NBP', sans-serif;
@@ -561,6 +596,75 @@ button:active {
 .music-text {
   width: 280px;
   font-size: 0.8em;
+}
+
+.guestbook-container {
+  padding: 10px;
+  font-size: 0.8em;
+}
+
+.guestbook-blurb {
+  margin-bottom: 20px
+}
+
+.guestbook-input-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.guestbook-input {
+  color: black;
+  height: 25px;
+  background-color: transparent;
+  font-family: 'CasaleFinale NBP', sans-serif;
+}
+
+.guestbook-input:focus {
+  outline: none; 
+}
+
+.guestbook-input-2 {
+  color: black;
+  width: 600px;
+  height: 100px;
+  background-color: transparent;
+  font-family: 'CasaleFinale NBP', sans-serif;
+  margin-top: 10px;
+  border: 2px solid black;
+}
+
+.guestbook-input-2:focus {
+  outline: none; 
+}
+
+.guestbook-input-text {
+  margin-right: 10px;
+}
+
+.guestbook-button {
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+  color: black;
+  border: 2px solid black;
+  border-radius: 0px;
+  font-family: 'CasaleFinale NBP', sans-serif;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  margin-top: 20px;
+}
+
+.guestbook-button:hover {
+  background-color: black;
+  color: rgb(218,218,218);
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.guestbook-button:focus,
+.guestbook-button:active {
+  outline: none; 
 }
 
 @keyframes flicker {

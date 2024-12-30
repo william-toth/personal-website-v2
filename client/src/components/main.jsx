@@ -1,6 +1,7 @@
 import logo from '../img/logo.png';
 import textlogo from '../img/text.png';
 import folder2 from '../img/folder2.png';
+import book from '../img/book.png';
 import xIcon from '../img/close.png';
 import onnight from '../img/onnight.png';
 import clong from '../img/clong.png';
@@ -16,6 +17,7 @@ import dartmouth from '../img/d.png';
 import Typewriter from 'typewriter-effect';
 import VideoPlayer from './videoPlayer.tsx';
 import roblox from '../img/roblox.png';
+import GuestBook from './guestbook.jsx';
 
 const Main = () => {
   
@@ -41,6 +43,10 @@ const Main = () => {
   const musicIsClicked = useRef(false);
   const musicCoords = useRef({startX: 300, startY: 240, lastX: 300, lastY: 240});
 
+  const guestBookRef = useRef(null);
+  const guestBookIsClicked = useRef(false);
+  const guestBookCoords = useRef({startX: 350, startY: 350, lastX: 350, lastY: 350});
+
   const aboutWindowRef = useRef(null);
   const aboutWindowIsClicked = useRef(false);
   const aboutWindowCoords = useRef({startX: 200, startY: 50, lastX: 200, lastY: 50});
@@ -48,13 +54,23 @@ const Main = () => {
 
   const projectsWindowRef = useRef(null);
   const projectsWindowIsClicked = useRef(false);
-  const projectsWindowCoords = useRef({startX: 240, startY: 90, lastX: 240, lastY: 90});
+  const projectsWindowCoords = useRef({startX: 200, startY: 50, lastX: 340, lastY: 50});
   const projectsWindowBarRef = useRef(null);
 
   const experienceWindowRef = useRef(null);
   const experienceWindowIsClicked = useRef(false);
-  const experienceWindowCoords = useRef({startX: 260, startY: 20, lastX: 260, lastY: 20});
+  const experienceWindowCoords = useRef({startX: 200, startY: 50, lastX: 200, lastY: 50});
   const experienceWindowBarRef = useRef(null);
+
+  const musicWindowRef = useRef(null);
+  const musicWindowIsClicked = useRef(false);
+  const musicWindowCoords = useRef({startX: 200, startY: 50, lastX: 200, lastY: 50});
+  const musicWindowBarRef = useRef(null);
+
+  const guestBookWindowRef = useRef(null);
+  const guestBookWindowIsClicked = useRef(false);
+  const guestBookWindowCoords = useRef({startX: 200, startY: 50, lastX: 200, lastY: 50});
+  const guestBookWindowBarRef = useRef(null);
 
   const nlpWindowRef = useRef(null);
   const nlpWindowIsClicked = useRef(false);
@@ -81,11 +97,6 @@ const Main = () => {
   const eopmWindowCoords = useRef({startX: 340, startY: 100, lastX: 340, lastY: 100});
   const eopmWindowBarRef = useRef(null);
 
-  const musicWindowRef = useRef(null);
-  const musicWindowIsClicked = useRef(false);
-  const musicWindowCoords = useRef({startX: 340, startY: 100, lastX: 340, lastY: 100});
-  const musicWindowBarRef = useRef(null);
-
   const containerRef = useRef(null);
 
   const refs =[
@@ -93,6 +104,7 @@ const Main = () => {
     {ref: projectsRef, isClicked: projectsIsClicked, coords: projectsCoords, item: "projectsfolder", childRef: null},
     {ref: experienceRef, isClicked: experienceIsClicked, coords: experienceCoords, item: "experiencefolder", childRef: null},
     {ref: musicRef, isClicked: musicIsClicked, coords: musicCoords, item: "musicfile", childRef: null},
+    {ref: guestBookRef, isClicked: guestBookIsClicked, coords: guestBookCoords, item: "guestbookfile", childRef: null},
     {ref: aboutWindowRef, isClicked: aboutWindowIsClicked, coords: aboutWindowCoords, item: "about", childRef: aboutWindowBarRef},
     {ref: projectsWindowRef, isClicked: projectsWindowIsClicked, coords: projectsWindowCoords, item: "projects", childRef: projectsWindowBarRef},
     {ref: experienceWindowRef, isClicked: experienceWindowIsClicked, coords: experienceWindowCoords, item: "experience", childRef: experienceWindowBarRef},
@@ -102,7 +114,8 @@ const Main = () => {
     {ref: onNightWindowRef, isClicked: onNightWindowIsClicked, coords: onNightWindowCoords, item: "project-window", childRef: onNightWindowBarRef},
     {ref: clongWindowRef, isClicked: clongWindowIsClicked, coords: clongWindowCoords, item: "project-window", childRef: clongWindowBarRef},
     {ref: eopmWindowRef, isClicked: eopmWindowIsClicked, coords: eopmWindowCoords, item: "project-window", childRef: eopmWindowBarRef},
-    {ref: musicWindowRef, isClicked: musicWindowIsClicked, coords: musicWindowCoords, item: "music-window", childRef: musicWindowBarRef}
+    {ref: musicWindowRef, isClicked: musicWindowIsClicked, coords: musicWindowCoords, item: "music-window", childRef: musicWindowBarRef},
+    {ref: guestBookWindowRef, isClicked: guestBookWindowIsClicked, coords: guestBookWindowCoords, item: "guest-book-window", childRef: guestBookWindowBarRef},
   ]
 
   const [renderAbout, setRenderAbout] = useState(false);
@@ -114,6 +127,7 @@ const Main = () => {
   const [renderOnNight, setRenderOnNight] = useState(false);
   const [renderEopm, setRenderEopm] = useState(false);
   const [renderMusic, setRenderMusic] = useState(false);
+  const [renderGuestBook, setRenderGuestBook] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => setDate(new Date()), 6000);
@@ -139,6 +153,7 @@ const Main = () => {
             if (item == "projectsfolder") setRenderProjects(true);
             if (item == "experiencefolder") setRenderExperience(true);
             if (item == "musicfile") setRenderMusic(true);
+            if (item == "guestbookfile") setRenderGuestBook(true);
             if (item == "resume") {
               window.open("https://drive.google.com/file/d/1Aoi26B3M3Cfo1WADsTfge6gvbgNjFQpr/view?usp=sharing", "_blank");
             }
@@ -237,6 +252,12 @@ const Main = () => {
               </div>
               <div className="name">MUSIC.txt</div>
             </div>
+            <div className="guestbook" ref={guestBookRef}>
+              <div className="text-div">
+                <img className="book" src={book}/>
+              </div>
+              <div className="name">guest book</div>
+            </div>
             <div className="resume"
               ref={resumeRef}
             >
@@ -305,6 +326,18 @@ const Main = () => {
                 </div>
               </div>
             </div> : <div ref={musicWindowRef}><div ref={musicWindowBarRef}/></div>}
+            {renderGuestBook ? <div className="guestbookwindow" ref={guestBookWindowRef}>
+              <div className="windowbar" ref={guestBookWindowBarRef}>
+                <button className="x-button" onClick={() => {setRenderGuestBook(false)}}>
+                  <img src={xIcon} className="x"/>
+                </button>
+                <div className="about-title">
+                  guest book
+                </div>
+                <div/>
+              </div>
+              <GuestBook setRenderGuestBook={setRenderGuestBook}/>
+            </div> : <div ref={guestBookWindowRef}><div ref={guestBookWindowBarRef}/></div>}
             {renderProjects ? <div className="projectswindow" ref={projectsWindowRef}>
               <div className="windowbar" ref={projectsWindowBarRef}>
                 <button className="x-button" onClick={() => {setRenderProjects(false)}}>
