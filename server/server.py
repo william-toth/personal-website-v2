@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 connection_string = os.environ.get('CONNECTION_STRING')
 
-client = MongoClient('mongodb+srv://wat4th:FreshNed123@willcluster.s90is.mongodb.net/', ssl_cert_reqs=ssl.CERT_NONE)
+client = MongoClient('mongodb+srv://wat4th:FreshNed123@willcluster.s90is.mongodb.net/')
 
 @app.route('/', methods = ['POST']) 
 def home():
