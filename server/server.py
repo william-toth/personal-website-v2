@@ -1,19 +1,20 @@
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
 import os
-import ssl
+from flask_cors import CORS, cross_origin
 
-app = Flask(__name__) 
+app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type' 
 
 connection_string = os.environ.get('CONNECTION_STRING')
 
 client = MongoClient(connection_string)
 
 @app.route('/', methods = ['POST']) 
+@cross_origin()
 def home():
     try:
-        print("hi")
-        print(request.get_json())
         data = request.get_json() 
         client.guestbook.Collection.insert_one(data)
         return jsonify({'message': 'Guest book entry logged successfully'}), 200
