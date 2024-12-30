@@ -12,6 +12,8 @@ client = MongoClient('mongodb+srv://wat4th:FreshNed123@willcluster.s90is.mongodb
 @app.route('/', methods = ['POST']) 
 def home():
     try:
+        print("hi")
+        print(request.get_json())
         data = request.get_json() 
         client.guestbook.Collection.insert_one(data)
         return jsonify({'message': 'Guest book entry logged successfully'}), 200
