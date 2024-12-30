@@ -13,12 +13,15 @@ def home():
     print(connection_string == None)
     print(len(connection_string))
     print(request.get_json().name)
-    try:
-        data = request.get_json() 
-        client.guestbook.Collection.insert_one(data)
-        return jsonify({'message': 'Guest book entry logged successfully'}), 200
-    except:
-        return jsonify({'message': 'An error occured logging guest book entry'}), 500
+    # try:
+    #     data = request.get_json() 
+    #     client.guestbook.Collection.insert_one(data)
+    #     return jsonify({'message': 'Guest book entry logged successfully'}), 200
+    # except:
+    #     return jsonify({'message': 'An error occured logging guest book entry'}), 500
+    data = request.get_json() 
+    client.guestbook.Collection.insert_one(data)
+    return jsonify({'message': 'Guest book entry logged successfully'}), 200
     
 if __name__ == '__main__': 
   
